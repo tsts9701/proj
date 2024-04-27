@@ -60,7 +60,7 @@ const MenuMobile = ({ showMenCatMenu, showWomenCatMenu, mensCatClassName, womens
                     return (
                       <Link
                         key={cat.id}
-                        href={`/category/${cat.id}`}
+                        href={`/category/${(item.mensCat ? "mens-" : "women-") + cat.id}`}
                         onClick={() => {
                           
                         }}
@@ -86,21 +86,6 @@ const MenuMobile = ({ showMenCatMenu, showWomenCatMenu, mensCatClassName, womens
           </React.Fragment>
         );
       })}
-      <li className="py-4 px-5 border-b">
-        {isLoggedIn ? (
-          <Logout />
-        ) : (
-          <button
-            onClick={() => {
-              router.push("/login");
-              setMobileMenu(false);
-            }}
-            className="text-black py-2 px-4 w-full text-left"
-          >
-            Войти / зарегистрироваться
-          </button>
-        )}
-      </li>
     </ul>
   );
 };

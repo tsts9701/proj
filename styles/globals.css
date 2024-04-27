@@ -427,6 +427,24 @@ footer {
     .mui-style-1smr2uu {
         gap: 3rem;
     }
+
+    .homepage-reviews-header-content {
+        flex-direction: column;
+    }
+
+    .es-header-border {
+        display: none;
+    }
+
+    .see-all-reviews-homepage {
+        align-self: center;
+        width: 100% !important;
+        margin-top: 0 !important;
+    }
+
+    .homepage-reviews-starts {
+        margin: 6px 0 0px 0 !important;
+    }
 }
 
 .mui-style-13wr3f9 {
