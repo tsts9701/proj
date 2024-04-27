@@ -40,6 +40,7 @@ const Header = () => {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     router.push(`/search?query=${searchTerm}`);
+    setMobileMenu(false);
   };
 
   const controlNavbar = () => {
