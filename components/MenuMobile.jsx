@@ -62,7 +62,7 @@ const MenuMobile = ({ showMenCatMenu, showWomenCatMenu, mensCatClassName, womens
                         key={cat.id}
                         href={`/category/${(item.mensCat ? "mens-" : "women-") + cat.id}`}
                         onClick={() => {
-                          
+                          setMobileMenu(false);
                         }}
                       >
                         <li className="py-4 px-8 border-t flex justify-between">
