@@ -17,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ProductSizesGrids from "@/components/ProductSizesGrids";
 import { redirect } from "next/dist/server/api-utils";
 import PDPAccordion from "@/components/PDPAccordion";
+import { compose } from "@reduxjs/toolkit";
 
 const ProductDetails = ({ p, sizesGrids }) => {
   const [ selectedSize, setSelectedSize ] = useState();
@@ -326,20 +327,168 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const response = await fetchDataFromApi("/api/products-service/" + slug + "/?" + "language=ru");
+  let response = await fetchDataFromApi("/api/products-service/" + slug + "/?" + "language=ru");
 
-  const product = response.data;
+  let product = response.data;
   let productMaterials;
   let productName;
   let productSalePrice;
   let productPrice;
   let sizesGrids;
+  let baseProduct;
+
+  for (let prd of allSiteProducts) {
+    if ((prd.id + "") === slug) {
+      baseProduct = prd;
+    }
+  }
 
   if (!product || response.code === 404) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false
+    response = await fetchDataFromApi("/api/products-service/?ids[]=" + slug + "&language=ru");
+
+    if (!response || response.code !== 200) {
+      return {
+        redirect: {
+          destination: "/",
+          permanent: false
+        }
+      }
+    }
+
+    product = response.data?.products[slug];
+
+    if (!product.availability && product.sizes) {
+      let basePrdId = baseProduct.id + "";
+      let isMensPrd = (baseProduct.sex === "m");
+      let lastIdSym = basePrdId[basePrdId.length - 1];
+      let inStockSizesAmount = 5;
+      let isSizesEdited = false;
+
+      if (isMensPrd) {
+        if (lastIdSym === "1") {
+          product.sizes["27.5"] = 3;
+          product.sizes["26"] = 3;
+          product.sizes["29"] = 3;
+          product.sizes["25"] = 3;
+
+          isSizesEdited = true;
+         }
+    
+         if (lastIdSym === "2") {
+          product.sizes["29.5"] = 3;
+          product.sizes["26.5"] = 3;
+          product.sizes["27.5"] = 3;
+          product.sizes["30"] = 3;
+
+          isSizesEdited = true;
+         }
+    
+         if (lastIdSym === "3") {
+          product.sizes["27"] = 3;
+          product.sizes["27.5"] = 3;
+          product.sizes["28"] = 3;
+          product.sizes["28.5"] = 3;
+
+          isSizesEdited = true;
+         }
+    
+         if (lastIdSym === "4") {
+          product.sizes["31"] = 3;
+          product.sizes["29.5"] = 3;
+          product.sizes["25.5"] = 3;
+          product.sizes["25"] = 3;
+          product.sizes["26.5"] = 3;
+          product.sizes["27.5"] = 3;
+
+          isSizesEdited = true;
+         }
+    
+         if (lastIdSym === "5") {
+          product.sizes["31"] = 3;
+          product.sizes["30"] = 3;
+          product.sizes["29.5"] = 3;
+          product.sizes["28"] = 3;
+          product.sizes["27.5"] = 3;
+          product.sizes["24"] = 3;
+
+          isSizesEdited = true;
+         }
+    
+         if (lastIdSym === "6") {
+          product.sizes["27"] = 3;
+          product.sizes["29.5"] = 3;
+          product.sizes["30.5"] = 3;
+
+          isSizesEdited = true;
+         }
+    
+         if (lastIdSym === "9") {
+          product.sizes["25.5"] = 3;
+          product.sizes["26.5"] = 3;
+          product.sizes["27.5"] = 3;
+          product.sizes["28"] = 3;
+          product.sizes["29"] = 3;
+
+          isSizesEdited = true;
+         }
+
+         if (!isSizesEdited) {
+          product.sizes["26.5"] = 3;
+          product.sizes["27.5"] = 3;
+          product.sizes["29"] = 3;
+          product.sizes["29.5"] = 3;
+         }
+      } else {
+        if (lastIdSym === "9") {
+          product.sizes["23"] = 3;
+          product.sizes["24"] = 3;
+          product.sizes["22"] = 3;
+          product.sizes["21.5"] = 3;
+          product.sizes["26"] = 3;
+
+          isSizesEdited = true;
+        }
+
+        if (lastIdSym === "3") {
+          product.sizes["25"] = 3;
+          product.sizes["25.5"] = 3;
+          product.sizes["21"] = 3;
+          product.sizes["23"] = 3;
+          product.sizes["27"] = 3;
+
+          isSizesEdited = true;
+        }
+
+        if (lastIdSym === "2") {
+          product.sizes["25.5"] = 3;
+          product.sizes["25"] = 3;
+          product.sizes["23"] = 3;
+
+          isSizesEdited = true;
+        }
+
+        if (lastIdSym === "5") {
+          product.sizes["23.5"] = 3;
+          product.sizes["22"] = 3;
+          product.sizes["26"] = 3;
+
+          isSizesEdited = true;
+        }
+
+        if (lastIdSym === "6") {
+          product.sizes["24.5"] = 3;
+          product.sizes["24"] = 3;
+          product.sizes["22"] = 3;
+
+          isSizesEdited = true;
+        }
+
+        if (!isSizesEdited) {
+          product.sizes["23.5"] = 3;
+          product.sizes["25.5"] = 3;
+          product.sizes["22"] = 3;
+          product.sizes["24"] = 3;
+        }
       }
     }
   }
@@ -350,15 +499,11 @@ export async function getStaticProps({ params: { slug } }) {
     sizesGrids = sizesGridResponse.data;
   }
 
-  for (let prd of allSiteProducts) {
-    if ((prd.id + "") === slug) {
-      productName = prd.model;
-      productMaterials = prd.materials;
-      productPrice = prd.startPrice;
-      productSalePrice = prd.salePrice;
-    }
-  }
-
+  productName = baseProduct.model;
+  productMaterials = baseProduct.materials;
+  productPrice = baseProduct.startPrice;
+  productSalePrice = baseProduct.salePrice;
+  
   if (product) {
     if (productName) {
       product.name = productName;

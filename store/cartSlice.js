@@ -8,14 +8,14 @@ export const cartSlice = createSlice({
     reducers: {
         addToCart: (state, action) => {
             let isProductAlreadyInCart = false;
-            console.log(state.cartItems.length)
+
             for (let prd of state.cartItems) {
                 let payload = action.payload;
 
                 if (prd.id === payload.product.id && prd.selectedSize === payload.selectedSize) {
                     isProductAlreadyInCart = true;
                     prd.quantity += 1;
-                    console.log(prd)
+
                     break;
                 }
             }
@@ -30,11 +30,9 @@ export const cartSlice = createSlice({
                 product.quantity = 1;
                 
                 state.cartItems.push(product);
-                console.log(state.cartItems.length)
             }
         },
         updateCart: (state, action) => {
-            console.log(action.payload)
             for (let prd of state.cartItems) {
                 let payload = action.payload;
 
@@ -66,7 +64,6 @@ export const cartSlice = createSlice({
             state.cartItems = newCartItems;
         },
         getCart: (state) => {
-            console.log(state.cartItems.length)
             return state;
         },
     },

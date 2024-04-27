@@ -445,6 +445,10 @@ footer {
     .homepage-reviews-starts {
         margin: 6px 0 0px 0 !important;
     }
+
+    .pure-modal {
+        width: 100% !important;
+    }
 }
 
 .mui-style-13wr3f9 {

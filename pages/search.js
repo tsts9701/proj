@@ -57,7 +57,7 @@ function SearchPage() {
                         for (let j = 0; j < queryArray.length; j++) {
                             let prdName = allSiteProducts[i].model.toLowerCase();
 
-                            if (prdName.indexOf(query[j]) !== -1) {
+                            if (prdName.indexOf(queryArray[j]) !== -1) {
                                 productsToFetch.push(allSiteProducts[i].id);
                             }
                         }
