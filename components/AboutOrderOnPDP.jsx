@@ -33,7 +33,7 @@ function AboutOrderOnPDP() {
                     </div>
                     <div class="MuiBox-root mui-style-0">
                         <p class="MuiTypography-root MuiTypography-h5 mui-style-1ykvyr9">ПОДТВЕРЖДЕНИЕ ЗАКАЗА</p>
-                        <p class="MuiTypography-root MuiTypography-p2 mui-style-yio48b">После того как заказ будет подтвержден, мы привезем его в срок до 24 дней. В случае, каких либо проблем с наличием, мы немедленно известим тебя, предложим актуальную замену или вернем оплату.</p>
+                        <p class="MuiTypography-root MuiTypography-p2 mui-style-yio48b">После того как заказ будет подтвержден, мы привезем его в срок до 24 дней. В случае, каких либо проблем, мы немедленно известим вас, предложим актуальную замену или вернем оплату.</p>
                     </div>
                 </div>
             </div>

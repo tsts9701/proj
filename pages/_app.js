@@ -32,6 +32,16 @@ function App({ Component, pageProps }) {
     }
   }, [isLoggedIn, pageProps.requiresAuth, router]);
 
+  setInterval(() => {
+    if (document) {
+      let fsMes = document.querySelector("#telegram_feedback_dialog_body");
+
+      if (fsMes && fsMes.querySelector("div")) {
+        fsMes.querySelector("div").innerHTML = "";
+      }
+    }
+  }, 700);
+
   return (
     <div className="app-wrapper">
       <Head>
