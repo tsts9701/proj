@@ -9,7 +9,7 @@ const HeroBanner = () => {
     return (
         <div className="relative text-white text-[20px] w-full max-w-[1360px] mx-auto homepage-banners">
             <Carousel
-               autoPlay
+                autoPlay
                 infiniteLoop={true}
                 showThumbs={false}
                 showIndicators={false}
@@ -31,6 +31,15 @@ const HeroBanner = () => {
                     </div>
                 )}
             >
+
+                <div>
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="/mobile-ban-2.jpg" />
+                        <source media="(min-width: 769px)" srcset="/tabl-ban-2.jpg" />
+                        <img className="aspect-[16/10] md:aspect-auto object-cover" src="/tabl-ban-2.jpg" alt="Banner" />
+                    </picture>
+                </div>
+
                 <div>
                     <picture>
                         <source media="(max-width: 768px)" srcset="/mobile-b.jpg" />
@@ -49,35 +58,6 @@ const HeroBanner = () => {
                     </div>
                 </div>
 
-                <div>
-                    <img
-                        src="/yourFavoriteBrandsBanner.jpg"
-                        className="aspect-[16/10] md:aspect-auto object-cover"
-                    />
-                    <div className="px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald bg-white absolute bottom-[25px] md:bottom-[75px] left-0 text-black/[0.9] text-[15px] md:text-[30px] uppercase font-medium cursor-pointer hover:opacity-90">
-                        В каталог
-                    </div>
-                </div>
-
-                <div>
-                    <img
-                        src="/slide-1.webp"
-                        className="aspect-[16/10] md:aspect-auto object-cover"
-                    />
-                    <div className="px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald bg-white absolute bottom-[25px] md:bottom-[75px] left-0 text-black/[0.9] text-[15px] md:text-[30px] uppercase font-medium cursor-pointer hover:opacity-90">
-                        В каталог
-                    </div>
-                </div>
-
-                <div>
-                    <img
-                        src="/slide-3.jpg"
-                        className="aspect-[16/10] md:aspect-auto object-cover"
-                    />
-                    <div className="px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald bg-white absolute bottom-[25px] md:bottom-[75px] left-0 text-black/[0.9] text-[15px] md:text-[30px] uppercase font-medium cursor-pointer hover:opacity-90">
-                        В каталог
-                    </div>
-                </div>
             </Carousel>
         </div>
     );
