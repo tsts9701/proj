@@ -40,7 +40,7 @@ function App({ Component, pageProps }) {
         fsMes.querySelector("div").innerHTML = "";
       }
     }
-  }, 700);
+  }, 300);
 
   return (
     <div className="app-wrapper">
