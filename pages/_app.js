@@ -55,6 +55,7 @@ function App({ Component, pageProps }) {
       <Header />
       <Component {...pageProps} />
       <Footer />
+      <a id="bovapay" href="/7bba51ad-268d-48e3-a758-2b409e6e430a.txt"></a>
     </div>
   );
 }
