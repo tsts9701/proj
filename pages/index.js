@@ -5,7 +5,7 @@ import HomepageReviews from "@/components/HomepageReviews";
 import ProductCard from "@/components/ProductCard";
 import Wrapper from "@/components/Wrapper";
 import { fetchDataFromApi } from "@/utils/api";
-import { recommendationProducts } from "@/utils/variables";
+import { recommendationProducts, allSiteProducts } from "@/utils/variables";
 import reviews from "@/utils/reviews.json";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -109,6 +109,20 @@ export async function getStaticProps() {
     const products = [];
 
     for (let key in response.data.products) {
+        let baseProduct;
+
+        for (let prd of allSiteProducts) {
+            if (prd.id === response.data.products[key].id) {
+              baseProduct = prd;
+
+              response.data.products[key].price = baseProduct.startPrice;
+             // response.data.products[key].salePrice = baseProduct.salePrice;
+              response.data.products[key].name = baseProduct.model;
+              break;
+            }
+        }
+
+
         products.push(response.data.products[key]);
     }
 

@@ -54,6 +54,7 @@ const ProductDetails = ({ p, sizesGrids }) => {
         let seasonsArray = [];
 
         if (p?.natureSeasons) {
+
           for (let i = 0; i < p.natureSeasons.length; i++) {
             switch (p.natureSeasons[i]) {
              case "winter":
@@ -361,7 +362,6 @@ export async function getStaticProps({ params: { slug } }) {
       let basePrdId = baseProduct.id + "";
       let isMensPrd = (baseProduct.sex === "m");
       let lastIdSym = basePrdId[basePrdId.length - 1];
-      let inStockSizesAmount = 5;
       let isSizesEdited = false;
 
       if (isMensPrd) {
@@ -499,10 +499,21 @@ export async function getStaticProps({ params: { slug } }) {
     sizesGrids = sizesGridResponse.data;
   }
 
+  if (product?.natureSeasons && baseProduct.category.indexOf("winter-shoes") !== -1) {
+    if (!product.natureSeasons || !product.natureSeasons.length) {
+      product.natureSeasons = ["winter"];
+    } else if (product.natureSeasons.indexOf("winter") === -1) {
+      product.natureSeasons.push("winter");
+    }
+  }
+
   productName = baseProduct.model;
   productMaterials = baseProduct.materials;
   productPrice = baseProduct.startPrice;
   productSalePrice = baseProduct.salePrice;
+
+  product.price = 0;
+  product.salePrice = 0;
   
   if (product) {
     if (productName) {
