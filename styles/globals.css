@@ -1522,6 +1522,14 @@ svg.tt-icon-star--empty {
     user-select: none;   
 }
 
+.homepage-review-inner .homepage-review-head {
+    text-align: center;
+}
+
+.homepage-review-inner .homepage-review-head p:last-child {
+    margin-top: 10px;
+}
+
 .homepage-reviews .homepage-review-wrapper {
     display: flex;
     justify-content: center;

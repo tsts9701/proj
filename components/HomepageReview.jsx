@@ -14,8 +14,8 @@ function HomepageReview({ review }) {
                     <symbol xmlns="http://www.w3.org/2000/svg" id="tt-icon-star--full" viewBox="0 0 24 24"><path d="M12 18.66l-7.44 4.35 1.98-8.16L0 9.36l8.62-.7L12 .99l3.38 7.67 8.62.7-6.54 5.49 1.98 8.16L12 18.66z"></path></symbol>
                     <symbol id="tt-icon-star--half" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.09L9.09 9l-7.42.62 5.66 4.93-1.72 7.32 1.07-.65L12 17.97V2.09z"></path><path d="M12 2.09L14.91 9l7.42.62-5.66 4.93 1.72 7.32-1.07-.65L12 17.97V2.09z"></path></symbol>
                 </svg>
-                <div>
-                    <p>{review.email}</p>
+                <div className="homepage-review-head">
+                    <p>{hideEmail(review.email)}</p>
                     <p>{review.date}</p>
                 </div>
                 <div>
@@ -72,6 +72,16 @@ function HomepageReview({ review }) {
             </div>
         </div>
     )
+}
+
+function hideEmail(email) {
+    return email.replace(/(.{3})(.*)(?=@)/,
+      function(gp1, gp2, gp3) { 
+        for (let i = 0; i < gp3.length; i++) { 
+            gp2+= "*"; 
+        } 
+        return gp2; 
+      });
 }
 
 export default HomepageReview;

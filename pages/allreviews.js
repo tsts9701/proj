@@ -312,6 +312,6 @@ function hideEmail(email) {
         } 
         return gp2; 
       });
-  };
+};
 
 export default Allreviews;

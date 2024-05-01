@@ -32,7 +32,6 @@ function HomepageReviews(props) {
                 <div className="homepage-reviews-header-content">
                     <div>
                         <h3>Наши отзывы</h3>
-                       
 
                         <div className="homepage-reviews-stars">
                             <div>
