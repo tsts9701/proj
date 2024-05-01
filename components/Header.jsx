@@ -82,7 +82,7 @@ const Header = () => {
   return (
     <header
       className={`w-full h-[50px] md:h-[80px] bg-white flex items-center justify-between z-20 sticky top-0 transition-transform duration-300 ${show}`}
-    >
+    >886040
       <Wrapper className="header-wrapper h-[60px] flex justify-between items-center mt-8">
         <Link href="/" className="logo-icon">
           <img src="/favicon.jpg" className="w-[40px] md:w-[60px]" />
