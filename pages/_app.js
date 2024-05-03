@@ -32,6 +32,16 @@ function App({ Component, pageProps }) {
     }
   }, [isLoggedIn, pageProps.requiresAuth, router]);
 
+  let intrvl = setInterval(function () {
+    var head = window.document.querySelector("head");
+
+    console.log(1)
+    if (head.querySelector("noscript")) {
+      head.querySelector("noscript").remove();
+      clearInterval(intrvl);
+    }
+  }, 0);
+
   return (
     <div className="app-wrapper">
       <Head>
