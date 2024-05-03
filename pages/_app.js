@@ -48,7 +48,6 @@ function App({ Component, pageProps }) {
         <meta property="og:image:type" content="image/jpeg" /> 
         <meta property="og:image:width" content="400" /> 
         <meta property="og:image:height" content="300" />
-        <meta itemProp="image" content="https://crosscentre.ru/tabl-ban-2.jpg" />
         <link rel="icon" href="/favicon.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <script async src="https://script.click-chat.ru/chat.js?wid=06c53cd7-fc2c-4a15-8fbe-f133212deafd"></script>
