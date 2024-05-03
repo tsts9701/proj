@@ -40,8 +40,8 @@ function App({ Component, pageProps }) {
         <meta name="description" content="Оригинальная спортивная обувь из Европы: кроссовки, кеды, зимняя обувь, ботинки." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="кроссовки, спортивная обувь, кроссовки nike, кроссовки adidas, кроссовки jordan, купить nike, купить jordan, обувь из Европы, кроссовки из Европы" />
-        <meta name="og:title" property="og:title" content="Cross Centre — интернет-магазин спортивной обуви из Европы" />
-        <meta name="og:description" property="og:description" content="Оригинальная спортивная обувь из Европы: кроссовки, кеды, зимняя обувь, ботинки." />
+        <meta name="og:title" content="Cross Centre — интернет-магазин спортивной обуви из Европы" />
+        <meta name="og:description" content="Оригинальная спортивная обувь из Европы: кроссовки, кеды, зимняя обувь, ботинки." />
         <meta name="og:keywords" content="кроссовки, спортивная обувь, кроссовки nike, кроссовки adidas, кроссовки jordan, купить nike, купить jordan, обувь из Европы, кроссовки из Европы" />
         <meta name="og:image" content="https://crosscentre.ru/tabl-ban-2.jpg" />
         <meta name="og:type" content="website" />
