@@ -37,11 +37,12 @@ const Cart = () => {
     const handlePayment = async () => {
         let amountToPay = selectedDeliveryMethod === "1" ? subTotal : DELIVERY_COST;
         let userEmailVal = userEmail;
-
+console.log(userEmailVal)
         try {
             setLoading(true);
 
             if (!userEmailVal || !userEmailVal.length) {
+                console.log(2)
                 let savedUserContactData = window.localStorage.getItem("userContactData");
 
                 if (savedUserContactData) {
@@ -63,11 +64,10 @@ const Cart = () => {
                 "order_id": Math.random().toString(36).substr(2, 10),
                 "customer": userEmailVal
             });
-
+console.log(res)
             if (res && res.data && res.data.link) {
-                setPaymentLink(() => res.data.link);
-
                 setTimeout(function () {
+                    console.log(res.data.link)
                     window.location.href = res.data.link;
                 }, 1200);
             }
