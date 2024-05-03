@@ -25,7 +25,7 @@ const ProductCard = ({ data, onRemoveFavorite, isFavorite }) => {
     };
 
     dispatch(addToCart(product));
-    toast.success("Success. Check your cart!", {
+    toast.success("Товар успешно добавлен в корзину", {
       position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,

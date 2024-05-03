@@ -46,15 +46,14 @@ export const fetchDataFromApi = async (endpoint) => {
     }
   };
 
-  export const makePaymentRequest = async (endpoint, payload, userId) => {
+  export const makePaymentRequest = async (payload) => {
     try {
-      const res = await fetch(`${API_URL}${endpoint}`, {
+      const res = await fetch("https://nicepay.io/public/api/payment", {
         method: "POST",
         headers: {
-          Authorization: "Bearer " + STRAPI_API_TOKEN,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...payload, user: userId }),
+        body: JSON.stringify(payload),
       });
       const data = await res.json();
       return data;

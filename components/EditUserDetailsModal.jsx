@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 function EditUserDetailsModal(props) {
     let savedUserContactData = window.localStorage.getItem("userContactData");
     let setUserDetailsShown = props.setUserDetailsShown;
+    let setUserEmail = props.setUserEmail;
     let userDataForm = useRef(null);
     let phoneInput = useRef(null);
 
@@ -49,7 +50,7 @@ function EditUserDetailsModal(props) {
                                     </button>
                                     Данные получателя
                                 </h3>
-                                <form class="address-form" onSubmit={(e) => submitUserData(userDataForm, setUserDetailsShown, e)} ref={userDataForm}>
+                                <form class="address-form" onSubmit={(e) => submitUserData(userDataForm, setUserDetailsShown, setUserEmail, e)} ref={userDataForm}>
                                     <div class="input-item input-item_half">
                                         <div class="form-group form-group_relative" required="required" hide-required-label="">
                                             <input onInput={(e) => validateLabelPosition(e)} class="search-form__input input input_default" id="user-firstname" name="user-firstname" value={firstNameVal} onChange={(e) => {setFormWasEdited(true);setFirstNameVal(e.target.value)}} />
@@ -145,7 +146,7 @@ function validateLabelPosition(e) {
     }
 }
 
-function submitUserData(userDataFormRef, setUserDetailsShown, event) {
+function submitUserData(userDataFormRef, setUserDetailsShown, setUserEmail, event) {
     event.preventDefault();
 
     if (userDataFormRef && userDataFormRef.current) {
@@ -188,6 +189,7 @@ function submitUserData(userDataFormRef, setUserDetailsShown, event) {
         }
 
         setUserDetailsShown(false);
+        setUserEmail(emailVal);
 
         window.localStorage.setItem("userContactData", JSON.stringify({
             firstName: firstNameVal,

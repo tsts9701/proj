@@ -105,7 +105,7 @@ const ProductDetails = ({ p, sizesGrids }) => {
   }, [p, sizeGrids]);
 
   const notify = () => {
-    toast.success("Success. Check your cart!", {
+    toast.success("Товар успешно добавлен в корзину", {
       position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -121,7 +121,7 @@ const ProductDetails = ({ p, sizesGrids }) => {
 
     if (wishlistData && wishlistData.length) {
       if (wishlistData.indexOf(itemId) !== -1) {
-        toast.warn("This item is already in your favorites.", toastOptions);
+        toast.warn("Товар уже в списке желаний", toastOptions);
         return;
       }
 
@@ -130,7 +130,7 @@ const ProductDetails = ({ p, sizesGrids }) => {
       localStorage.setItem("wishlistData", itemId);
     }
 
-    toast.success("Item added to favorites!", toastOptions);
+    toast.success("Товар успешно добавлен в список желаний", toastOptions);
     setIsFavorited(true);
   };
 

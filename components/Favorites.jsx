@@ -76,7 +76,7 @@ const Favorites = ({ displayCount, setWishlistItemsCount }) => {
         window.location.reload();
 
         // Show a success toast
-        toast.success("Product removed from favorites!", {
+        toast.success("Товар удален из списка желаний", {
           position: "bottom-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -90,7 +90,7 @@ const Favorites = ({ displayCount, setWishlistItemsCount }) => {
     } catch (error) {
       console.error("Error removing favorite:", error);
       // Show an error toast
-      toast.error("Failed to remove product from favorites", {
+      toast.error("Ошибка при удалении товара из списка желаний", {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,

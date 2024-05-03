@@ -16,7 +16,8 @@ const stripePromise = loadStripe(
 );
 
 const Cart = () => {
-    const [loading, setLoading] = useState(false);
+    const [ loading, setLoading ] = useState(false);
+    const [ userEmail, setUserEmail ] = useState("");
     const { cartItems } = useSelector((state) => state.cart);
     const loggedInUser = useSelector((state) => state.auth.user);
     const dispatch = useDispatch();
@@ -34,34 +35,42 @@ const Cart = () => {
     }, [cartItems]);
 
     const handlePayment = async () => {
-        if (!loggedInUser) {
-            alert('Please log in to checkout.');
-            return;
-        }
+        let amountToPay = selectedDeliveryMethod === "1" ? subTotal : DELIVERY_COST;
+        let userEmailVal = userEmail;
+
         try {
             setLoading(true);
-            const stripe = await stripePromise;
-            const res = await makePaymentRequest("/api/orders", {
-                products: cartItems,
-                userName: loggedInUser.username, // Add user's username
-                userId: loggedInUser.id, // Add user's ID
+
+            if (!userEmailVal || !userEmailVal.length) {
+                let savedUserContactData = window.localStorage.getItem("userContactData");
+
+                if (savedUserContactData) {
+                    savedUserContactData = JSON.parse(savedUserContactData);
+                    userEmailVal = savedUserContactData.email;
+
+                    setUserEmail(savedUserContactData.email);
+                } else {
+                    setUserEmail("crosscentre@crosscentre.ru");
+                    userEmailVal = "crosscentre@crosscentre.ru";
+                }
+            }
+
+            const res = await makePaymentRequest({
+                "merchant_id": "6633897da4181245aacf1cde",
+                "secret": "khn4i-FZqHx-s0ZJK-9wJYG-KnFeP",
+                "amount": amountToPay * 100,
+                "currency": "RUB",
+                "order_id": Math.random().toString(36).substr(2, 10),
+                "customer": userEmailVal
             });
 
-            const { error } = await stripe.redirectToCheckout({
-                sessionId: res.stripeSession.id,
-            });
-
-            setLoading(false);
-
-            if (error) {
-                console.error("Payment failed:", error);
-            } else {
-                // Clear cart only if payment was successful
-                dispatch(clearCart());
+            if (res && res.data && res.data.link) {
+                window.open(res.data.link, "_blank");
             }
         } catch (error) {
-            setLoading(false);
         }
+
+        setLoading(false);
     };
 
 
@@ -198,7 +207,7 @@ const Cart = () => {
             </Wrapper>
 
             {
-                userDetailsShown ? <EditUserDetailsModal setUserDetailsShown={setUserDetailsShown} /> : <div className="hello"></div>
+                userDetailsShown ? <EditUserDetailsModal setUserDetailsShown={setUserDetailsShown} setUserEmail={setUserEmail} /> : <div className="hello"></div>
             }
         </div>
     );
