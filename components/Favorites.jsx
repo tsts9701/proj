@@ -110,7 +110,7 @@ const Favorites = ({ displayCount, setWishlistItemsCount }) => {
       <div>Loading...</div> // Display a loading indicator
     ) : favorites.length === 0 ? (
       <div className="text-center py-8">
-        <h2 className="text-lg">Items added to your Favorites will be saved here.</h2>
+        <h5 className="text-lg">Ваш список желаний пуст</h5>
       </div>
     ) : (
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

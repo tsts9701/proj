@@ -171,7 +171,7 @@ const Header = () => {
                     : "opacity-0 invisible"
                 }`}
               >
-                <h2 className="font-bold ml-2">Account</h2>
+                <h5 className="font-bold ml-2">Account</h5>
                 <div className="py-1">
                   <Link href="/order-history">
                     <div className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">

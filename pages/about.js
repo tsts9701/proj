@@ -10,7 +10,7 @@ const About = () => {
     <div className="w-full md:py-20">
       <Wrapper>
         <div className="mt-30">
-          <h1 className="text-[28px] md:text-[34px] mb-5 font-semibold leading-tight">О нас</h1>
+          <h4 className="text-[28px] md:text-[34px] mb-5 font-semibold leading-tight">О нас</h4>
           <p className="text-md md:text-xl">
             Привет! Мы — <b>Cross Centre</b>. Наш интернет-магазин привозит топовые бренды из-за границы в Россию. 
             Трансграничная торговля – это сотни непростых процессов. Мы спрятали их под капот и 
@@ -22,7 +22,7 @@ const About = () => {
           </div>
         </div>
 
-        <h2 className="MuiTypography-root MuiTypography-h2 mui-style-h7byok">КАК ЭТО РАБОТАЕТ</h2>
+        <h5 className="MuiTypography-root MuiTypography-h2 mui-style-h7byok">КАК ЭТО РАБОТАЕТ</h5>
 
         <div className="about-us-main-sides">
           <PlaneAnimation />
@@ -30,7 +30,7 @@ const About = () => {
         </div>
         
         <div className="faq-section" id="faqSection">
-          <h2>ВОПРОСЫ - ОТВЕТЫ</h2>
+          <h4>ВОПРОСЫ - ОТВЕТЫ</h4>
           <Faq />
         </div>
         

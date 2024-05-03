@@ -160,9 +160,9 @@ const ProductDetails = ({ p, sizesGrids }) => {
               {/* right column start */}
               <div className="flex-[1] py-3">
                 {/* PRODUCT TITLE */}
-                <div className="text-[34px] font-semibold mb-2 leading-tight">
+                <h2 className="text-[34px] font-semibold mb-2 leading-tight">
                   {product?.name}
-                </div>
+                </h2>
 
                 {/* PRODUCT SUBTITLE */}
                 <div className="text-lg font-semibold mb-5">{product?.subtitle}</div>
