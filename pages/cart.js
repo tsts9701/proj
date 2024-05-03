@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Wrapper from "@/components/Wrapper";
@@ -18,9 +18,7 @@ const stripePromise = loadStripe(
 const Cart = () => {
     const [ loading, setLoading ] = useState(false);
     const [ userEmail, setUserEmail ] = useState("");
-    const [ paymentLink, setPaymentLink ] = useState("");
     const { cartItems } = useSelector((state) => state.cart);
-    const paymentLinkRef = useRef(null);
     const loggedInUser = useSelector((state) => state.auth.user);
     const dispatch = useDispatch();
     let [ userDetailsShown, setUserDetailsShown ] = useState(false);
@@ -70,9 +68,8 @@ const Cart = () => {
                 setPaymentLink(() => res.data.link);
 
                 setTimeout(function () {
-                    setLoading(false);
-                    paymentLinkRef.current.click();
-                }, 1000);
+                    window.location.href = res.data.link;
+                }, 1200);
             }
         } catch (error) {
             setLoading(false);
@@ -215,8 +212,6 @@ const Cart = () => {
             {
                 userDetailsShown ? <EditUserDetailsModal setUserDetailsShown={setUserDetailsShown} setUserEmail={setUserEmail} /> : <div className="hello"></div>
             }
-
-            <a id="paymentLink" href={paymentLink} ref={paymentLinkRef} target="_blank"></a>
         </div>
     );
 };
