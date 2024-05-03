@@ -44,6 +44,8 @@ function App({ Component, pageProps }) {
         <meta property="og:image" content="https://crosscentre.ru/tabl-ban-2.jpg" />
         <meta property="og:url" content="https://crosscentre.ru" />
         <meta property="og:type" content="website" />
+        <meta property="og:image:width" content="1200" />
+	      <meta property="og:image:height" content="628" />
         <meta charset="utf-8" />
         <link rel="icon" href="/favicon.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
