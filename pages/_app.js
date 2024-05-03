@@ -45,10 +45,9 @@ function App({ Component, pageProps }) {
         <meta name="og:url" content="https://crosscentre.ru" />
         <meta property="og:site_name" content="Cross Centre"></meta>
         <meta name="og:image" content="https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon@2.png?v=73d79a89bded" />
-        <meta property="og:image:secure_url" content="https://crosscentre.ru/tabl-ban-2.jpg" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="968" />
-        <meta property="og:image:height" content="504" />
+      
+       
+        
         <link rel="icon" href="/favicon.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <script async src="https://script.click-chat.ru/chat.js?wid=06c53cd7-fc2c-4a15-8fbe-f133212deafd"></script>
