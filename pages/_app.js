@@ -35,7 +35,6 @@ function App({ Component, pageProps }) {
   return (
     <div className="app-wrapper">
       <Head>
-        <meta charset="utf-8" />
         <title>Cross Centre — интернет-магазин спортивной обуви из Европы</title>
         <meta name="description" content="Оригинальная спортивная обувь из Европы: кроссовки, кеды, зимняя обувь, ботинки." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -44,7 +43,7 @@ function App({ Component, pageProps }) {
         <meta name="og:type" content="website" />
         <meta name="og:url" content="https://crosscentre.ru" />
         <meta property="og:site_name" content="Cross Centre"></meta>
-        <meta name="og:image" content="https://crosscentre.ru/tabl-ban-2.jpg" />
+        <meta name="og:image:url" content="https://crosscentre.ru/tabl-ban-2.jpg" />
         <meta itemProp="image" content="https://crosscentre.ru/tabl-ban-2.jpg" />
         <link rel="icon" href="/favicon.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
