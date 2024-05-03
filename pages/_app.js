@@ -35,17 +35,17 @@ function App({ Component, pageProps }) {
   return (
     <div className="app-wrapper">
       <Head>
+        <meta charset="utf-8" />
         <title>Cross Centre — интернет-магазин спортивной обуви из Европы</title>
         <meta name="description" content="Оригинальная спортивная обувь из Европы: кроссовки, кеды, зимняя обувь, ботинки." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="кроссовки, спортивная обувь, кроссовки nike, кроссовки adidas, кроссовки jordan, купить nike, купить jordan, обувь из Европы, кроссовки из Европы" />
-        <meta data-n-head="ssr" data-hid="og:title" property="og:title" content="Cross Centre — интернет-магазин спортивной обуви из Европы" />
-        <meta data-n-head="ssr" data-hid="og:description" property="og:description" content="Оригинальная спортивная обувь из Европы: кроссовки, кеды, зимняя обувь, ботинки." />
-        <meta data-n-head="ssr" data-hid="og:keywords" property="og:keywords" content="кроссовки, спортивная обувь, кроссовки nike, кроссовки adidas, кроссовки jordan, купить nike, купить jordan, обувь из Европы, кроссовки из Европы" />
-        <meta data-n-head="ssr" data-hid="og:image" property="og:image" content="https://crosscentre.ru/tabl-ban-2.jpgg" />
-        <meta data-n-head="ssr" data-hid="og:type" property="og:type" content="website" />
-        <meta data-n-head="ssr" data-hid="og:url" property="og:url" content="https://crosscentre.ru" />
-        <meta charset="utf-8" />
+        <meta name="og:title" property="og:title" content="Cross Centre — интернет-магазин спортивной обуви из Европы" />
+        <meta name="og:description" property="og:description" content="Оригинальная спортивная обувь из Европы: кроссовки, кеды, зимняя обувь, ботинки." />
+        <meta name="og:keywords" content="кроссовки, спортивная обувь, кроссовки nike, кроссовки adidas, кроссовки jordan, купить nike, купить jordan, обувь из Европы, кроссовки из Европы" />
+        <meta name="og:image" content="https://crosscentre.ru/tabl-ban-2.jpg" />
+        <meta name="og:type" content="website" />
+        <meta name="og:url" content="https://crosscentre.ru" />
         <link rel="icon" href="/favicon.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <script async src="https://script.click-chat.ru/chat.js?wid=06c53cd7-fc2c-4a15-8fbe-f133212deafd"></script>
