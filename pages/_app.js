@@ -39,14 +39,17 @@ function App({ Component, pageProps }) {
         <meta name="description" content="Оригинальная спортивная обувь из Европы: кроссовки, кеды, зимняя обувь, ботинки." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="кроссовки, спортивная обувь, кроссовки nike, кроссовки adidas, кроссовки jordan, купить nike, купить jordan, обувь из Европы, кроссовки из Европы" />
-        <meta property="og:description" content="Оригинальная спортивная обувь из Европы: кроссовки, кеды, зимняя обувь, ботинки." />
-        <meta property="og:title" content="Cross Centre — интернет-магазин спортивной обуви из Европы" />
-        <meta property="og:image" content="https://crosscentre.ru/tabl-ban-2.jpg" />
-        <meta property="og:image:secure_url" content="https://crosscentre.ru/tabl-ban-2.jpg" />
-        <meta property="og:url" content="https://crosscentre.ru" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image:width" content="1200" />
-	      <meta property="og:image:height" content="628" />
+        
+
+        <meta data-n-head="ssr" data-hid="og:title" property="og:title" content="Meet Market — онлайн-магазин эксклюзивных товаров. Обувь, Одежда и Аксессуары. С бесплатной доставкой по России" />
+        <meta data-n-head="ssr" data-hid="og:description" property="og:description" content="Мужская и женская спортивная одежда, обувь на любой сезон от мировых брендов. Только оригинальные товары. Купить спортивную одежду, обувь в маркетплейс meet-market.ru с быстрой доставкой по РФ." />
+        <meta data-n-head="ssr" data-hid="og:keywords" property="og:keywords" content="Meet Market,Meet,Мит Маркет,MeetMarket.ru,Meetmarket,брендовая обувь для мужчин,брендовая обувь для женщин,Nike Air Jordan купить,Nike x off white,Supreme одежда,adidas yeezy v2 купить,off white купить,meet market кроссовки ,Salomon,New Balance,New balance купить,Salomon купить"></meta>
+        <meta data-n-head="ssr" data-hid="og:image" property="og:image" content="https://api.meet-market.ru/assets/box.png" />
+        <meta data-n-head="ssr" data-hid="og:type" property="og:type" content="website" />
+        <meta data-n-head="ssr" data-hid="og:url" property="og:url" content="https://meet-market.ru" />
+
+
+
         <meta charset="utf-8" />
         <link rel="icon" href="/favicon.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
