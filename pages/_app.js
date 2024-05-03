@@ -39,10 +39,11 @@ function App({ Component, pageProps }) {
         <meta name="description" content="Оригинальная спортивная обувь из Европы: кроссовки, кеды, зимняя обувь, ботинки." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="кроссовки, спортивная обувь, кроссовки nike, кроссовки adidas, кроссовки jordan, купить nike, купить jordan, обувь из Европы, кроссовки из Европы" />
+        <meta property="og:site_name" content="crosscentre.ru" />
         <meta property="og:title" content="Оригинальная спортивная обувь из Европы: кроссовки, кеды, зимняя обувь, ботинки." />
-        <meta property="og:image" content="/public/tabl-ban-2.jpg" />
-        <meta property="og:url" content="/about" />
-        <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://crosscentre.ru/tabl-ban-2.jpg" />
+        <meta property="og:url" content="https://crosscentre.ru" />
+        <meta property="og:type" content="website" />
         <meta charset="utf-8" />
         <link rel="icon" href="/favicon.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
