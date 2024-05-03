@@ -43,7 +43,11 @@ function App({ Component, pageProps }) {
         <meta name="og:type" content="website" />
         <meta name="og:url" content="https://crosscentre.ru" />
         <meta property="og:site_name" content="Cross Centre"></meta>
-        <meta name="og:image:url" content="https://crosscentre.ru/tabl-ban-2.jpg" />
+        <meta name="og:image" content="http://crosscentre.ru/tabl-ban-2.jpg" />
+        <meta property="og:image:secure_url" content="https://crosscentre.ru/tabl-ban-2.jpg" /> 
+        <meta property="og:image:type" content="image/jpeg" /> 
+        <meta property="og:image:width" content="400" /> 
+        <meta property="og:image:height" content="300" />
         <meta itemProp="image" content="https://crosscentre.ru/tabl-ban-2.jpg" />
         <link rel="icon" href="/favicon.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
