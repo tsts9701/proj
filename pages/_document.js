@@ -18,9 +18,6 @@ export default function Document() {
         <meta property="og:image:height" content="630" />
       </Head>
       <body>
-      <a href="https://aaio.so/" target="_blank">
-        <img src="https://aaio.so/assets/svg/banners/big/white-1.svg" title="Aaio - Сервис по приему онлайн платежей" />
-      </a>
         <Main />
         <NextScript />
       </body>
