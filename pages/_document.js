@@ -4,7 +4,6 @@ export default function Document() {
   return (
     <Html lang="ru">
       <Head>
-        <title>Cross Centre — интернет-магазин спортивной обуви из Европы</title>
         <meta name="description" content="Оригинальная спортивная обувь из Европы: кроссовки, кеды, зимняя обувь, ботинки." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="кроссовки, спортивная обувь, кроссовки nike, кроссовки adidas, кроссовки jordan, купить nike, купить jordan, обувь из Европы, кроссовки из Европы" />
