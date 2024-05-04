@@ -35,15 +35,6 @@ function App({ Component, pageProps }) {
   return (
     <div className="app-wrapper">
       <Head>
-        <title>Cross Centre — интернет-магазин спортивной обуви из Европы</title>
-        <meta name="description" content="Оригинальная спортивная обувь из Европы: кроссовки, кеды, зимняя обувь, ботинки." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="keywords" content="кроссовки, спортивная обувь, кроссовки nike, кроссовки adidas, кроссовки jordan, купить nike, купить jordan, обувь из Европы, кроссовки из Европы" />
-        <meta name="og:title" content="Cross Centre — интернет-магазин спортивной обуви из Европы" />
-        <meta name="og:type" content="website" />
-        <meta name="og:url" content="https://crosscentre.ru" />
-        <meta property="og:site_name" content="Cross Centre"></meta>
-        <meta name="og:image" content="https://crosscentre.ru/tabl-ban-2.jpg" />
         <link rel="icon" href="/favicon.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <script async src="https://script.click-chat.ru/chat.js?wid=06c53cd7-fc2c-4a15-8fbe-f133212deafd"></script>

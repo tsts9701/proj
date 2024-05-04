@@ -8,7 +8,6 @@ import { fetchDataFromApi } from "@/utils/api";
 import { recommendationProducts, allSiteProducts } from "@/utils/variables";
 import reviews from "@/utils/reviews.json";
 import Carousel from "react-multi-carousel";
-import Head from "next/head";
 import "react-multi-carousel/lib/styles.css";
 
 const responsive = {
@@ -36,9 +35,6 @@ const responsive = {
 export default function Home({ products }) {
     return (
         <main className="mt-10">
-            <Head>
-                <meta name="og:image" content="https://crosscentre.ru/tabl-ban-2.jpg" />
-            </Head>
             <HeroBanner />
             <Wrapper>
                 {/* heading and paragaph start */}

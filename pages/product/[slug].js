@@ -18,7 +18,6 @@ import ProductSizesGrids from "@/components/ProductSizesGrids";
 import { redirect } from "next/dist/server/api-utils";
 import PDPAccordion from "@/components/PDPAccordion";
 import { compose } from "@reduxjs/toolkit";
-import Head from "next/head";
 
 const ProductDetails = ({ p, sizesGrids }) => {
   const [ selectedSize, setSelectedSize ] = useState();
@@ -313,9 +312,7 @@ const ProductDetails = ({ p, sizesGrids }) => {
         <div>
           <ProductSizesGrids sizesGrids={sizeGrids} productName={p?.name ? p.name : null} openedSizesGrids={openedSizesGrids} setOpenedSizesGrids={setOpenedSizesGrids} />
         </div>
-        <Head>
-          <meta name="og:image" content={productImages.length ? productImages[0].url : ""} />
-        </Head>
+
       </div>
   );
 };
