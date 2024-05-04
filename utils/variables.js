@@ -80,7 +80,8 @@ export const allSiteProducts = [
         sex: "m",
         model: "Adidas Originals NITEBALL",
         materials: "Кожа - 60%. Текстиль - 40%. Подошва - резина",
-        startPrice: 13499
+        startPrice: 13499,
+        salePrice: 3990
     },
     {
         id: 1692918,
@@ -207,7 +208,7 @@ export const allSiteProducts = [
         sex: "m",
         model: "Puma Pacer 23 Desert Road",
         materials: "100% текстиль, подошва резина",
-        startPrice: 2999
+        startPrice: 5100
     },
     {
         id: 1695434,
@@ -222,7 +223,7 @@ export const allSiteProducts = [
         category: "mens-summer-shoes",
         sex: "m",
         model: "Champion tennis clay 86 low cut shoe",
-        startPrice: 2299
+        startPrice: 2850
 
     },
     {

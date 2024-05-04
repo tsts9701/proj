@@ -51,17 +51,17 @@ const CartItem = ({ data }) => {
 
                     {/* PRODUCT PRICE */}
                     <div className="text-sm md:text-md font-bold text-black/[0.5] mt-2">
-                        {p.salePrice && p.price > p.salePrice && (
+                        {p.salePrice && p.price > p.salePrice ? (
                             <div>{p.salePrice} &#8381;</div>
-                        )}
-                        <div className={p.price > p.salePrice ? "price-line-through" : ""}>
+                        ) : null}
+                        <div className={p.price > p.salePrice && p.salePrice && p.salePrice > 0 ? "price-line-through" : ""}>
                             {p.price} &#8381;
                         </div>
-                        {p.salePrice && p.price > p.salePrice && (
+                        {p.salePrice && p.price > p.salePrice ? (
                             <div className="cart-item-discount-percents-cont text-green-500">
                                 ({"-" + getDiscountedPricePercentage(p.price, p.salePrice) + "%"})
                             </div>
-                        )}
+                        ) : null}
                     </div>
                 </div>
 

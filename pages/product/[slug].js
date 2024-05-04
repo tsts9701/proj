@@ -169,8 +169,8 @@ const ProductDetails = ({ p, sizesGrids }) => {
 
                 {/* PRODUCT PRICE */}
                 <div className="flex items-center">
-                  <p className="mr-2 text-lg font-semibold">{product?.salePrice && product.price < product.salePrice ? product.price : (product?.salePrice ? product.salePrice : "")} &#8381;</p>
-                  {product?.price && (
+                  <p className="mr-2 text-lg font-semibold">{p?.salePrice && p?.salePrice > 0 ? p.salePrice : p?.price} &#8381;</p>
+                  {product?.price && p?.salePrice > 0 && (
                     <>
                       <p className="text-base font-medium line-through">
                         {p?.salePrice && p.price > p.salePrice ? (product.price + " ₽") : ""}

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Wrapper from "@/components/Wrapper";
@@ -6,11 +6,12 @@ import CartItem from "@/components/CartItem";
 import { DELIVERY_COST } from "@/utils/variables";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { clearCart } from "@/store/cartSlice";
+import { sha256 } from "@/utils/helper";
 
 import { makePaymentRequest } from "@/utils/api";
 import { loadStripe } from "@stripe/stripe-js";
 import EditUserDetailsModal from "@/components/EditUserDetailsModal";
+import { toast } from "react-toastify";
 const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 );
@@ -21,6 +22,7 @@ const Cart = () => {
     const { cartItems } = useSelector((state) => state.cart);
     const loggedInUser = useSelector((state) => state.auth.user);
     const dispatch = useDispatch();
+    let paymentForm = useRef(null);
     let [ userDetailsShown, setUserDetailsShown ] = useState(false);
     let [ selectedDeliveryMethod, setSelectedDeliveryMethod ] = useState("1");
     let userContactData = window.localStorage.getItem("userContactData");
@@ -35,47 +37,44 @@ const Cart = () => {
     }, [cartItems]);
 
     const handlePayment = async () => {
-        let amountToPay = selectedDeliveryMethod === "1" ? subTotal : DELIVERY_COST;
-        let userEmailVal = userEmail;
-console.log(userEmailVal)
+        setLoading(true);
+
         try {
-            setLoading(true);
+            let orderId = Math.random().toString(36).substr(2, 10);
+            let amountToPay = selectedDeliveryMethod === "1" ? subTotal : DELIVERY_COST;
+            let savedUserContactData = window.localStorage.getItem("userContactData");
 
-            if (!userEmailVal || !userEmailVal.length) {
-                console.log(2)
-                let savedUserContactData = window.localStorage.getItem("userContactData");
+            let merchantIdInput = paymentForm.current.querySelector("input[name='merchant_id']");
+            let amountInput = paymentForm.current.querySelector("input[name='amount']");
+            let currencyInput = paymentForm.current.querySelector("input[name='currency']");
+            let orderIdInput = paymentForm.current.querySelector("input[name='order_id']");
+            let emailInput = paymentForm.current.querySelector("input[name='email']");
+            let signInput = paymentForm.current.querySelector("input[name='sign']");
 
-                if (savedUserContactData) {
-                    savedUserContactData = JSON.parse(savedUserContactData);
-                    userEmailVal = savedUserContactData.email;
-
-                    setUserEmail(savedUserContactData.email);
-                } else {
-                    setUserEmail("crosscentre@crosscentre.ru");
-                    userEmailVal = "crosscentre@crosscentre.ru";
-                }
+            if (!savedUserContactData) {
+                return;
             }
 
-            const res = await makePaymentRequest({
-                "merchant_id": "6633897da4181245aacf1cde",
-                "secret": "khn4i-FZqHx-s0ZJK-9wJYG-KnFeP",
-                "amount": amountToPay * 100,
-                "currency": "RUB",
-                "order_id": Math.random().toString(36).substr(2, 10),
-                "customer": userEmailVal
-            });
-console.log(res)
-            if (res && res.data && res.data.link) {
-                setTimeout(function () {
-                    console.log(res.data.link)
-                    window.location.href = res.data.link;
-                }, 1200);
-            }
-        } catch (error) {
+            savedUserContactData = JSON.parse(savedUserContactData);
+
+            merchantIdInput.value = "d366ba9e-b918-4180-b8d8-c70e8cfb5f02";
+            amountInput.value = amountToPay;
+            currencyInput.value = "RUB";
+            orderIdInput.value = orderId;
+            emailInput.value = savedUserContactData.email;
+            signInput.value = sha256(["d366ba9e-b918-4180-b8d8-c70e8cfb5f02", amountToPay, "RUB",
+                "2e6ca7490bb95e5a4425fca73d9c9298", orderId
+            ].join(":"));
+
+            setLoading(false);
+
+            setTimeout(function () {
+                paymentForm.current.submit();
+            }, 300);
+        } catch (e) {
             setLoading(false);
         }
     };
-
 
     return (
         <div className="w-full md:py-20 cart-page">
@@ -212,6 +211,17 @@ console.log(res)
             {
                 userDetailsShown ? <EditUserDetailsModal setUserDetailsShown={setUserDetailsShown} setUserEmail={setUserEmail} /> : <div className="hello"></div>
             }
+
+            <form className="d-none" method="POST" action="https://aaio.so/merchant/pay" ref={paymentForm}>
+                <input type="hidden" name="merchant_id" value="" />
+                <input type="hidden" name="amount" value="" />
+                <input type="hidden" name="currency" value="" />
+                <input type="hidden" name="order_id" value="" />
+                <input type="hidden" name="sign" value="" />
+                <input type="hidden" name="email" value="" />
+                <input type="hidden" name="lang" value="ru" />
+                <input type="submit" name="pay" value="Пополнить" />
+            </form>
         </div>
     );
 };
