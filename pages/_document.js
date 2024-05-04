@@ -8,7 +8,6 @@ export default function Document() {
         <meta name="og:type" content="website" />
         <meta name="og:url" content="https://crosscentre.ru" />
         <meta property="og:site_name" content="Cross Centre"></meta>
-        <meta name="og:image" content="https://crosscentre.ru/tabl-ban-2.jpg" />
         <meta property="og:image:type" content="image/jpeg" /> 
         <meta property="og:image:width" content="1200" /> 
         <meta property="og:image:height" content="630" />
