@@ -36,6 +36,14 @@ const Category = ({ apiProducts, restCategoryProducts, maxProductsPages, slug })
     }, [query]);
 
     useEffect(() => {
+        if (maxPageSize === 1) {
+            setDisabledNextButton(true);
+        } else {
+            setDisabledNextButton(false);
+        }
+    }, [maxPageSize]);
+
+    useEffect(() => {
         if (apiProducts) {
             setIsLoading(false);
             setProducts(apiProducts);

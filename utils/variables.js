@@ -439,15 +439,6 @@ export const allSiteProducts = [
         category: "women-summer-shoes",
         sex: "w",
         model: "Nike Free Metcon 5",
-        materials: "69% синтетика, 31% текстиль. Подошва резина/пластик",
-        startPrice: 9790,
-        salePrice: 5790
-    },
-    {
-        id: 1696507,
-        category: "women-summer-shoes",
-        sex: "w",
-        model: "Puma RS-X Reinvention",
         materials: "100% текстиль. Подошва резина",
         startPrice: 14250,
         salePrice: 10090
