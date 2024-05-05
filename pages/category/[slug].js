@@ -96,7 +96,7 @@ const Category = ({ apiProducts, restCategoryProducts, maxProductsPages, slug })
                                 //setDisabledNextButton((notShownCategoryProducts.length === 0));
                             }}
                         >
-                            Next
+                            Дальше
                         </button>
                     </div>
                         )}
@@ -104,7 +104,7 @@ const Category = ({ apiProducts, restCategoryProducts, maxProductsPages, slug })
                 {isLoading && (
                     <div className="absolute top-0 left-0 w-full h-full bg-white/[0.5] flex flex-col gap-5 justify-center items-center">
                         <img src="/logo.svg" width={150} />
-                        <span className="text-2xl font-medium">Loading...</span>
+                        <span className="text-2xl font-medium">Загрузка ...</span>
                     </div>
                 )}
             </Wrapper>
