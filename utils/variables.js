@@ -412,111 +412,141 @@ export const allSiteProducts = [
         category: "women-summer-shoes",
         sex: "w",
         model: "New Balance model 550",
-        materials: "Кожа/ткань"
+        materials: "Кожа/ткань",
+        startPrice: 7650,
+        salePrice: 4890
     },
     {
         id: 1698587,
         category: "women-summer-shoes",
         sex: "w",
         model: "Adidas Originals OZMILLEN W",
-        materials: "Синтетика 60%, текстиль 40%"
+        materials: "Синтетика 60%, текстиль 40%",
+        startPrice: 15100,
+        salePrice: 11190
     },
     {
         id: 1695433,
         category: "women-summer-shoes",
         sex: "w",
         model: "New Balance model 327",
-        materials: "Замша/текстиль"
+        materials: "Замша/текстиль",
+        startPrice: 18300,
+        salePrice: 12890
     },
     {
         id: 1696507,
         category: "women-summer-shoes",
         sex: "w",
         model: "Nike Free Metcon 5",
-        materials: "69% синтетика, 31% текстиль. Подошва резина/пластик"
+        materials: "69% синтетика, 31% текстиль. Подошва резина/пластик",
+        startPrice: 9790,
+        salePrice: 5790
     },
     {
         id: 1696507,
         category: "women-summer-shoes",
         sex: "w",
         model: "Puma RS-X Reinvention",
-        materials: "100% текстиль. Подошва резина"
+        materials: "100% текстиль. Подошва резина",
+        startPrice: 14250,
+        salePrice: 10090
+
     },
     {
         id: 1697033,
         category: "women-summer-shoes",
         sex: "w",
         model: "Adidas Originals FORUM BOLD STRIPES",
-        materials: "кожа 60%, синтетика 40%"
+        materials: "кожа 60%, синтетика 40%",
+        salePrice: 14700,
+        salePrice: 10670
     },
     {
         id: 1698942,
         category: "women-summer-shoes",
         sex: "w",
         model: "Puma X-Ray Speed",
-        materials: "50% текстиль, 50% синт. материалы"
+        materials: "50% текстиль, 50% синт. материалы",
+        startPrice: 5680
     },
     {
         id: 1700213,
         category: "women-summer-shoes",
         sex: "w",
         model: "Nike Motiva",
-        materials: "23% синтетика, 77% текстиль"
+        materials: "23% синтетика, 77% текстиль",
+        startPrice: 5990
     },
     {
         id: 1696689,
         category: "women-summer-shoes",
         sex: "w",
         model: "Puma PWRFrame TR 3 Wn's Animal Remix",
-        materials: "100% текстиль, подошва 100% резина"
+        materials: "100% текстиль, подошва 100% резина",
+        startPrice: 6250
     },
     {
         id: 1699508,
         category: "women-summer-shoes",
         sex: "w",
         model: "Nike Court Legacy Lift",
-        materials: "72% кожа, 19% синтетика, 9% текстиль"
+        materials: "72% кожа, 19% синтетика, 9% текстиль",
+        startPrice: 11290,
+        salePrice: 6290
     },
     {
         id: 1697331,
         category: "women-summer-shoes",
         sex: "w",
         model: "Nike Court Vision Alta",
-        materials: "52% кожа, 42% синтетика"
+        materials: "52% кожа, 42% синтетика",
+        startPrice: 12180,
+        salePrice: 7780
     },
     {
         id: 1697237,
         category: "women-summer-shoes",
         sex: "w",
-        model: "Puma Carina 2.0 I Am The Drama"
+        model: "Puma Carina 2.0 I Am The Drama",
+        startPrice: 11490,
+        salePrice: 8090
     },
     {
         id: 1697331,
         category: "women-summer-shoes",
         sex: "w",
         model: "Nike Air Force 1 '07 SE",
-        materials: "53% кожа, 47% синтетика"
+        materials: "53% кожа, 47% синтетика",
+        startPrice: 16999,
+        salePrice: 9999
     },
     {
         id: 1694294,
         category: "women-winter-shoes",
         sex: "w",
         model: "Puma Snowbae Wns",
-        materials: "99% текстиль, 1% кожа"
+        materials: "99% текстиль, 1% кожа",
+        startPrice: 7099,
+        salePrice: 4899
     },
     {
         id: 1692987,
         category: "women-winter-shoes",
         sex: "w",
         model: "Puma Mayze Chelsea Suede Wn's",
-        materials: "кожа, текстиль"
+        materials: "кожа, текстиль",
+        startPrice: 9090,
+        salePrice: 6090
     },
     {
         id: 1693261,
         category: "women-winter-shoes",
         sex: "w",
         model: "Puma Mayra",
-        materials: "60% кожа, 40% синт. материалы"
+        materials: "60% кожа, 40% синт. материалы",
+        startPrice: 7570,
+        salePrice: 4890
     },
 ];
 

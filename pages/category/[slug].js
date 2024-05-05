@@ -10,13 +10,14 @@ import { PLP_PAGE_SIZE } from "@/utils/variables";
 const Category = ({ apiProducts, restCategoryProducts, maxProductsPages, slug }) => {
     const [pageIndex, setPageIndex] = useState(1);
     const [products, setProducts] = useState(null);
+    const [restProducts, setRestProducts] = useState([]);
     const [shownProductsCount, setShownProductsCount] = useState(0);
     const [notShownCategoryProducts, setNotShownCategoryProducts] = useState([]);
     const [disabledNextButton, setDisabledNextButton] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [maxPageSize, setMaxPageSize] = useState(1);
     const { query } = useRouter();
-    
+
     let categoryName = "";
 
     switch(slug) {
@@ -40,7 +41,7 @@ const Category = ({ apiProducts, restCategoryProducts, maxProductsPages, slug })
             setProducts(apiProducts);
             setShownProductsCount(apiProducts.length)
             setMaxPageSize(maxProductsPages);
-            setDisabledNextButton((!restCategoryProducts || !restCategoryProducts.length));
+            setRestProducts(restCategoryProducts);
         }
     }, [apiProducts]);
 
@@ -64,21 +65,18 @@ const Category = ({ apiProducts, restCategoryProducts, maxProductsPages, slug })
                 {/* PAGINATION BUTTONS START */}
                 {(products && products.length !== 0) && (
                     <div className="flex gap-3 items-center justify-center my-16 md:my-0">
-                        <button
-                            className={`rounded py-2 px-4 bg-black text-white disabled:bg-gray-200 disabled:text-gray-500`}
-                            disabled={true}
-                        >
-                            Previous
-                        </button>
-
                         <span className="font-bold">{`${pageIndex} of ${maxPageSize}`}</span>
 
                         <button
                             className={`rounded py-2 px-4 bg-black text-white disabled:bg-gray-200 disabled:text-gray-500`}
                             disabled={disabledNextButton}
                             onClick={async () => {
-                                let newPageProducts = await fetchRestPageProducts(restCategoryProducts);
+                                if (pageIndex >= maxPageSize) {
+                                    setDisabledNextButton(true);
+                                    return;
+                                }
 
+                                let newPageProducts = await fetchRestPageProducts(restProducts);
                                 restCategoryProducts = null;
 
                                 setProducts((prds) => {
@@ -90,7 +88,12 @@ const Category = ({ apiProducts, restCategoryProducts, maxProductsPages, slug })
                                 setNotShownCategoryProducts(() => newPageProducts.newRestCategoryProducts);
                                 setPageIndex(pageIndex + 1);
                                 setShownProductsCount(shownProductsCount + products.length);
-                                setDisabledNextButton((notShownCategoryProducts.length === 0));
+                                setRestProducts(newPageProducts.newRestCategoryProducts);
+
+                                if (pageIndex + 1 >= maxPageSize) {
+                                    setDisabledNextButton(true);
+                                }
+                                //setDisabledNextButton((notShownCategoryProducts.length === 0));
                             }}
                         >
                             Next
